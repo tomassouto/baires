@@ -1,0 +1,5 @@
+name        = Blocks
+description = Custom blocks
+core        = 7.x
+package     = Baires Web Design
+version     = 1.0

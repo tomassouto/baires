@@ -1,0 +1,12 @@
+<?php
+
+function bwd_breadcrumb_init()
+{
+    $breadcrumb = array();
+    $breadcrumb[] = '';
+    $breadcrumb[] = l('Home', '<front>');
+
+
+    drupal_set_breadcrumb($breadcrumb);
+}
+

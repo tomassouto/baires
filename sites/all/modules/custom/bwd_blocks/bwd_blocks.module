@@ -1,0 +1,337 @@
+<?php
+/**
+ * Implements hook_block_info().
+ */
+function bwd_blocks_block_info()
+{
+    $blocks['mainmenu']             = array('info' => t('BWD Mainmenu'));
+    $blocks['home-aboutus']         = array('info' => t('BWD Home About Us'));
+    $blocks['home-blog']            = array('info' => t('BWD Home Blog'));
+    $blocks['footer']               = array('info' => t('BWD Footer'));
+    $blocks['home-slider']          = array('info' => t('BWD Home Slider'));
+    $blocks['drupal-association']   = array('info' => t('BWD Drupal Association'));
+    $blocks['service-drupal']       = array('info' => t('BWD Drupal Services'));
+    $blocks['fb-comments']          = array('info' => t('BWD Facebook Comments Box'));
+    $blocks['about-us']             = array('info' => t('BWD About Us'));
+
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function bwd_blocks_block_view($delta = '')
+{
+    $block = array();
+    switch ($delta) {
+        case 'mainmenu':
+            $block['subject'] = t('BDW Mainmenu');
+            $block['content'] = bwd_blocks_mainmenu();
+            break;
+        case 'home-aboutus':
+            $block['subject'] = t('BDW About Us');
+            $block['content'] = bwd_blocks_home_about_us();
+            break;
+        case 'home-blog':
+            $block['subject'] = t('BDW Blog');
+            $block['content'] = bwd_blocks_home_blog();
+            break;
+        case 'footer':
+            $block['subject'] = t('BDW Footer');
+            $block['content'] = bwd_blocks_footer();
+            break;
+        case 'home-slider':
+            $block['subject'] = t('BDW Home Slider');
+            $block['content'] = bwd_blocks_home_slider();
+            break;
+        case 'drupal-association':
+            $block['subject'] = t('BDW Drupal Association');
+            $block['content'] = bwd_blocks_drupal_association();
+            break;
+        case 'service-drupal':
+            $block['subject'] = t('BDW Drupal Services');
+            $block['content'] = bwd_blocks_service_drupal();
+            break;
+        case 'fb-comments':
+            $block['subject'] = t('BWD Facebook Comments Box');
+            $block['content'] = bwd_blocks_facebook_comments();
+            break;
+        case 'about-us':
+            $block['subject'] = t('BWD About Us');
+            $block['content'] = bwd_blocks_about_us();
+            break;
+    }
+    return $block;
+}
+
+/**
+ * Return main menu
+ * @return string
+ */
+function bwd_blocks_mainmenu()
+{
+
+    $current    = request_path();
+    $html       = '
+        <ul class="menu nav navbar-nav">
+            <li class="first leaf'; if ($current == '') { $html .= ' active-trail active'; } $html .= '"><a href="/" title="Our summary">Home<span>Our summary</span></a></li>
+            <li class=" leaf'; if ($current == 'about-us') { $html .= ' active-trail active'; } $html .= '"><a href="/about-us" title="About the team">About Us<span>About the team</span></a></li>
+            <li class=" leaf'; if (preg_match('/services/i', $current)) { $html .= ' active-trail active'; } $html .= '"><a href="/services" title="About the team">Services<span>What we do</span></a></li>
+            <li class="last leaf'; if (preg_match('/blog/i', $current)) { $html .= ' active-trail active'; } $html .= '"><a href="/blog" title="Blah!">Blog<span>Blah!</span></a></li>
+        </ul>
+    ';
+    //<li class="leaf'; if ($current == 'portfolio') { $html .= ' active-trail active'; } $html .= '"><a href="/portfolio" title="Our projects">Portfolio<span>Our projects</span></a></li>
+
+    return $html;
+}
+
+/**
+ * Return About us / We do / Choose us blocks
+ * @return string
+ */
+function bwd_blocks_home_about_us()
+{
+    $html       = '
+        <div class="row">
+            <div class="col-md-4">
+                <h2>' . t('About us') . '</h2>
+                <a href="about-us">We are a company with 10+ years of experience in design, programming and internet. We know what we do and we love doing it. We are in continuous learning to evolve along with the new technologies in the market..</a>
+            </div>
+            <div class="col-md-4">
+                <h2>' . t('What we do') . '</h2>
+                <a href="services">We will optimize your business with the latest technologies. We specialize in PHP, Mobile Applications, RoR and User Interfaces.</a>
+            </div>
+            <div class="col-md-4">
+                <h2>' . t('Choose us') . '</h2>
+                <a href="portfolio">Because we prioritize our customers, we create fully customized products. Our customers get support before, during and after project completion.</a>
+            </div>
+        </div>
+    ';
+
+    return $html;
+}
+
+/**
+ * Return Footer block
+ * @return string
+ */
+function bwd_blocks_footer()
+{
+    $newsletter = module_invoke('newsletter', 'block_view', 'newsletter_subscribe');
+    $html       = '
+        <div class="row">
+            <div class="col-md-3">
+                <h2>' . t('Get in touch') . '</h2>
+                <span class="big">Skype tomas.souto</span>
+                <span class="medium">email info@baireswebdesign.com</span>
+                <span class="small">or call +54 911 40830739 (mobile)</span>
+
+                <span class="social-share">
+                    '. t('Follow us') . '
+                    <a href="http://facebook.com/baireswebdesign"><img src="/sites/all/themes/base/images/ico-facebook-white.png" alt="Facebook" /></a>
+                    <a href="http://twitter.com/baireswebdesign"><img src="/sites/all/themes/base/images/ico-twitter-white.png" alt="Twitter" /></a>
+                    <a href="http://www.linkedin.com/company/baireswebdesign-com/"><img src="/sites/all/themes/base/images/ico-linkedin-white.png" alt="Linkedin" /></a>
+                    <a href="http://plus.google.com/+Baireswebdesign"><img src="/sites/all/themes/base/images/ico-google-white.png" alt="Google" /></a>
+                </span>
+
+            </div>
+            <div class="col-md-5">
+                <h2>' . t('Tweets') . '</h2>
+                ' . views_embed_view('twitter', 'last_tweets') . '
+            </div>
+            <div class="col-md-4">
+                <h2>' . t('Newsletter') . '</h2>
+                Leave us your email and we\'ll send you news, offers and tips for a better online presence.
+                ' . render($newsletter) . '
+            </div>
+        </div>
+    ';
+
+    return $html;
+}
+
+/**
+ * Return Latest Posts and Services Blocks
+ * @return string
+ */
+function bwd_blocks_home_blog()
+{
+    $html       = '
+        <div class="row">
+            <div class="col-md-6">
+                <h2>' . t('Posts') . '</h2>
+                ' . views_embed_view('blog', 'blog_latest') . '
+
+            </div>
+            <div class="col-md-6">
+                <h2>' . t('Services') . '</h2>
+                ' . views_embed_view('services', 'services_latest') . '
+            </div>
+        </div>
+    ';
+
+    return $html;
+}
+
+/**
+ * Return Home Slider
+ * @return string
+ */
+function bwd_blocks_home_slider()
+{
+    $html       = '
+        ' . views_embed_view('home_slider', 'block') . '
+    ';
+
+    return $html;
+}
+
+/**
+ * Return facebook number of comments by node path
+ * @param $nid
+ * @return int
+ */
+function bwd_blocks_comments_count($nid)
+{
+    $count = cache_get('facebook_comments_count_' . $nid, 'cache');
+    $count = $count->data;
+    if (!$count) {
+
+        $path           = 'http://' . $_SERVER['HTTP_HOST'] . '/' . drupal_get_path_alias("node/" . $nid);
+        $filecontent    = file_get_contents('https://graph.facebook.com/?ids=' . $path);
+        $json           = json_decode($filecontent);
+        $count          = $json->$path->comments;
+
+        if ($count == 0 || !isset($count)) {
+            $count = 0;
+        }
+
+        // save result on cache, expires on 6 hours
+        cache_set('facebook_comments_count_' . $nid, $count, 'cache', time() + (24 * 60));
+
+    }
+
+    return $count;
+}
+
+/**
+ * Return permanent url by current path
+ * @return string
+ */
+function _permalink()
+{
+    return 'http://' . $_SERVER['HTTP_HOST'] . '/' .request_path();
+}
+
+/**
+ * Drupal Association block
+ * @return string
+ */
+function bwd_blocks_drupal_association()
+{
+    $html = '
+        We collaborate on Drupal Groups to help a new contributors and we are Drupal Association members<br />
+        <a href="https://drupal.org/user/998322"><img src="/sites/all/themes/base/images/drupal-assoc-member.png" alt="Drupal Association Member" /></a>
+    ';
+
+    return $html;
+}
+
+/**
+ * Drupal Service Page
+ * @return string
+ */
+function bwd_blocks_service_drupal()
+{
+    $html = '
+        Drupal is the best CMS (Content Management System) nowadays. Its 10+ years of history and its huge community ensure us flexibility, security and power.
+
+        <div class="row margin-bottom margin-top">
+            <div class="col-md-4 text-center position-left">
+                <img src="/sites/all/themes/base/images/icon-consulting.png" alt="Drupal Consulting" />
+            </div>
+            <div class="col-md-8 text-center">
+                <h2>' . t('Drupal Consulting') . '</h2>
+                Our years behind this platform gave us wide knowledge and experience we bring to you. If you want to start using Drupal, our team will guide you on the best practices and make your learning curve fast and productive.
+            </div>
+        </div>
+
+        <div class="row margin-bottom">
+            <div class="col-md-4 text-center position-right">
+                <img src="/sites/all/themes/base/images/icon-theming.png" alt="Drupal UI Design" />
+            </div>
+            <div class="col-md-8 text-center">
+                <h2>' . t('Drupal UI Design') . '</h2>
+                We make the design and mockup of your Drupal using the latest technologies (Bootstrap, less, jQuery UI, etc) getting an stylish and fully cross-browser result.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center position-left">
+                <img src="/sites/all/themes/base/images/icon-developer.png" alt="Drupal Developer" />
+            </div>
+            <div class="col-md-8 text-center">
+                <h2>' . t('Drupal Development') . '</h2>
+                We have the knowledge and experience needed to develop new custom modules, following Drupal standards and taking the benefit of its powerful API.
+            </div>
+        </div>
+    ';
+
+    return $html;
+}
+
+/**
+ * Return comments and share buttons
+ * @return string
+ */
+function bwd_blocks_facebook_comments()
+{
+    drupal_add_js("(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=584311154999327';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    ",
+        array('type' => 'inline', 'scope' => 'header')
+    );
+
+    $html = '
+    <div class="share-buttons">
+        <div class="fb-like" data-href="' . _permalink() . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="baireswebdesign">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
+    </div>
+
+    <div id="fb-root"></div>
+    <div class="fb-comments" data-href="' . _permalink() . '" data-width="848" data-numposts="25" data-colorscheme="light"></div>
+    ';
+
+    return $html;
+}
+
+function bwd_blocks_about_us()
+{
+    $html = '
+        <div class="row">
+            <div class="col-md-6 font-big">
+                ' . t('<h2>We are...</h2><span class="color2">We are a young company with passion and commitment. Our clients receive truly personalized care. You will feel our support.<br /><br />
+                    We have extensive experience in programming, design and the Internet, we like what we do, so we are always researching new trends and technologies which puts us at the forefront. With this we ensure we always exceed your expectations.</span>') . '
+            </div>
+            <div class="col-md-6">
+                <h2>How we work?</h2>
+                In Baires we split each project in several basic stages, to keep the organization and control about the project itself.
+                <br /><br />
+                Those stages are divided into "deliverables", that are previously agreed with the customers based on project\'s complexity, and where we show advances or one specific feature.
+                <br /><br />
+                All stages must have deliverables, since from them we get client\'s feedback, needed by project to fill customer’s expectation.
+                <br /><br />
+                <a href="/how-we-work-our-process">Read more</a>
+            </div>
+        </div>
+    ';
+
+    return $html;
+}
