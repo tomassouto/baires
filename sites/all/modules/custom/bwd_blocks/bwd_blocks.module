@@ -96,15 +96,15 @@ function bwd_blocks_home_about_us()
         <div class="row">
             <div class="col-md-4">
                 <h2>' . t('About us') . '</h2>
-                <a href="about-us">We are a company with 10+ years of experience in design, programming and internet. We know what we do and we love doing it. We are in continuous learning to evolve along with the new technologies in the market..</a>
+                <a href="about-us">Baires is fully staff digital agency with end-to-end project workflow capabilities.<br />Together with our clients, we create digital experiences for web and mobile.</a>
             </div>
             <div class="col-md-4">
-                <h2>' . t('What we do') . '</h2>
-                <a href="services">We will optimize your business with the latest technologies. We specialize in PHP, Mobile Applications, RoR and User Interfaces.</a>
+                <h2>' . t('What we do?') . '</h2>
+                <a href="services">Baires successfully guides projects through the entire lifecycle, from requirements, planning, visual design, architecture, development, quality assurance, implementation and maintenance.</a>
             </div>
             <div class="col-md-4">
-                <h2>' . t('Choose us') . '</h2>
-                <a href="portfolio">Because we prioritize our customers, we create fully customized products. Our customers get support before, during and after project completion.</a>
+                <h2>' . t('Why us?') . '</h2>
+                <a href="portfolio">We are passionate about translating ideas into images, layouts, interactions, visual designs, and code. Yes, we can help you bring your ideas into the web so you can share them with the world.</a>
             </div>
         </div>
     ';
@@ -159,9 +159,9 @@ function bwd_blocks_home_blog()
 {
     $html       = '
         <div class="row">
-            <div class="col-md-6">
-                <h2>' . t('Posts') . '</h2>
-                ' . views_embed_view('blog', 'blog_latest') . '
+            <div class="col-md-6" itemscope="" itemtype="http://schema.org/Blog">
+                <h2>' . t('Last post') . '</h2>
+                ' . views_embed_view('blog', 'last_post') . '
 
             </div>
             <div class="col-md-6">
@@ -246,6 +246,8 @@ function bwd_blocks_service_drupal()
 {
     $html = '
         Drupal is the best CMS (Content Management System) nowadays. Its 10+ years of history and its huge community ensure us flexibility, security and power.
+        <br /><br />
+        We have been working with Drupal for over 4+ years and have developed over 100 different custom modules. Several of the custom modules we have built required intergration with Solr, Yelp, Paypal, Google\'s API, Facebook\'s API, etc. We also have extensive experience using fields API, Forms API, Database API, Schema API, to name a few.
 
         <div class="row margin-bottom margin-top">
             <div class="col-md-4 text-center position-left">
@@ -300,7 +302,7 @@ function bwd_blocks_facebook_comments()
 
     $html = '
     <div class="share-buttons">
-        <div class="fb-like" data-href="' . _permalink() . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div class="fb-like" data-href="' . _permalink() . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="baireswebdesign">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
     </div>
@@ -316,17 +318,19 @@ function bwd_blocks_about_us()
 {
     $html = '
         <div class="row">
-            <div class="col-md-6 font-big">
-                ' . t('<h2>We are...</h2><span class="color2">We are a young company with passion and commitment. Our clients receive truly personalized care. You will feel our support.<br /><br />
-                    We have extensive experience in programming, design and the Internet, we like what we do, so we are always researching new trends and technologies which puts us at the forefront. With this we ensure we always exceed your expectations.</span>') . '
+            <div class="col-md-8 font-big">
+                <h2>We are...</h2>
+                <span class="text-highlight">
+                    Baires is fully staff digital agency with end-to-end project workflow capabilities. Together with our clients, we create digital experiences for web and mobile: our websites are created with best practices and adhering industry standards from strategy to deployment. Our services include but are not limited to contemporary design, strategy, graphic design, leading edge development and post launch support.
+                    <br /><br />
+                    We have a team of developers with over 10+ years of experience in PHP, RoR, Mobile applications, HTML/HTML5, CSS/CSS3, MYSQL, PostgresSQL, UI-design, JQuery, and JavaScript. We have extensive experience in programming, design and the Internet, we like what we do, so we are always researching new trends and technologies which puts us at the forefront. With this we ensure we always exceed your expectations.
+                </span>
             </div>
-            <div class="col-md-6">
+
+            <div class="col-md-4">
                 <h2>How we work?</h2>
-                In Baires we split each project in several basic stages, to keep the organization and control about the project itself.
-                <br /><br />
-                Those stages are divided into "deliverables", that are previously agreed with the customers based on project\'s complexity, and where we show advances or one specific feature.
-                <br /><br />
-                All stages must have deliverables, since from them we get client\'s feedback, needed by project to fill customer’s expectation.
+                Baires successfully guides projects through the entire lifecycle, from requirements, planning, visual design, architecture, development, quality assurance, implementation and maintenance.
+                <br /><br />Baires combines best practices and progressive techniques to deliver solutions for clients across the private and public enterprise sectors.
                 <br /><br />
                 <a href="/how-we-work-our-process">Read more</a>
             </div>
