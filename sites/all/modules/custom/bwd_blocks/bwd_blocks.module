@@ -75,7 +75,7 @@ function bwd_blocks_mainmenu()
     $current    = request_path();
     $html       = '
         <ul class="menu nav navbar-nav">
-            <li class="first leaf'; if ($current == '') { $html .= ' active-trail active'; } $html .= '"><a href="/" title="Our summary">Home<span>Our summary</span></a></li>
+            <li class="first leaf'; if ($current == '') { $html .= ' active-trail active'; } $html .= '"><a href="/" title="Our summary">Home</a></li>
             <li class=" leaf'; if ($current == 'about-us') { $html .= ' active-trail active'; } $html .= '"><a href="/about-us" title="About the team">About Us<span>About the team</span></a></li>
             <li class=" leaf'; if (preg_match('/services/i', $current)) { $html .= ' active-trail active'; } $html .= '"><a href="/services" title="About the team">Services<span>What we do</span></a></li>
             <li class="last leaf'; if (preg_match('/blog/i', $current)) { $html .= ' active-trail active'; } $html .= '"><a href="/blog" title="Blah!">Blog<span>Blah!</span></a></li>
