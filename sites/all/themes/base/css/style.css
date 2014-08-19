@@ -21,7 +21,22 @@ GENERIC
 .text-center { text-align: center; }
 .position-right { float: right; }
 .position-left { float: left; }
-
+.font-big { font-size: 19px; line-height: 31px; }
+.color1 { color: #419900; }
+.color2 { color: #c98731; }
+.text-highlight {
+    background: #E7E7D6;
+    color: #454545;
+    font-size: 17px;
+    line-height: 10px;
+}
+.text3colums {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    column-gap: 2em;
+    column-rule: 1px solid #ccf;
+}
 
 /**
 General
@@ -66,9 +81,6 @@ blockquote p {
     font-weight: normal;
     font-size: 44px;
 }
-.font-big { font-size: 19px; line-height: 31px; }
-.color1 { color: #419900; }
-.color2 { color: #c98731; }
 
 /*
 Settings Icon
@@ -350,6 +362,23 @@ Front page Blog & Services blocks
     display: inline-block;
     width: 567px;
 }
+.view-id-blog.view-display-id-last_post img {
+    width: 100%;
+    border: 1px solid #f4f4f4;
+}
+.view-id-blog.view-display-id-last_post .title {
+    display: block;
+    font-size: 24px;
+    color: #419800;
+    margin: 15px 0 15px 0;
+    line-height: 26px;
+}
+.view-id-blog.view-display-id-last_post .read-more {
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    text-decoration: underline;
+}
 
 /*
 Footer
@@ -498,7 +527,7 @@ body.node-type-blog .share-buttons {
     position: absolute;
     right: 0;
     top: 0;
-    margin: 0;
+    margin: 0 -30px 0 0;
     float: none;
 }
 .share-buttons #twitter-widget-0 {
