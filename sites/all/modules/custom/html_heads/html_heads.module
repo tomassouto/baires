@@ -37,6 +37,7 @@ function html_heads_process()
  */
 function html_heads_find($path)
 {
+
     $query = db_select('{node}', 'node');
     $query->fields('node', array('created'));
     $query->fields('field_data_body', array('body_value'));
@@ -69,3 +70,5 @@ function html_heads_parser($html)
 
     return $html;
 }
+
+
