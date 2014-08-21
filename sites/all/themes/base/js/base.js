@@ -2,7 +2,10 @@ Drupal.behaviors.base = {
     attach: function (context, settings) {
         jQuery(document).ready(function(){
 
-
+            jQuery('a.blank').click(function(){
+                window.open(this.href);
+                return false;
+            });
 
         });
     }
