@@ -360,7 +360,9 @@ Front page Blog & Services blocks
 #block-views-services-services-latest .view-display-id-services_latest .views-row>.views-field-nothing a:hover { text-decoration: none; }
 #block-views-services-services-latest .view-display-id-services_latest .views-row {
     display: inline-block;
-    width: 567px;
+    /*width: 567px;*/
+    width: 50%;
+    float: left;
 }
 .view-id-blog.view-display-id-last_post img {
     width: 100%;
@@ -529,6 +531,7 @@ body.node-type-blog .share-buttons {
     top: 0;
     margin: 0 -30px 0 0;
     float: none;
+    line-height: 10px;
 }
 .share-buttons #twitter-widget-0 {
     display: inline-block;
@@ -692,4 +695,51 @@ Drupal Association Block
 #block-bwd-blocks-drupal-association img:hover {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
     -webkit-filter: grayscale(0%);
+}
+
+/**
+Case Study
+**/
+body.page-cases .view-display-id-page .views-row {
+    margin-bottom: 40px;
+    padding: 15px
+}
+body.page-cases .view-display-id-page .views-row.views-row-even {
+    background: #f4f4f4;
+}
+body.page-cases .view-display-id-page .views-row .views-field-title a {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+body.node-type-case-study .field-name-field-problem,
+body.node-type-case-study .field-name-field-approach,
+body.node-type-case-study .field-name-field-result {
+    margin-bottom: 30px;
+}
+body.node-type-case-study .field-name-field-problem .field-label,
+body.node-type-case-study .field-name-field-approach .field-label,
+body.node-type-case-study .field-name-field-result .field-label {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+body.node-type-case-study .field-type-image {
+    text-align: center;
+}
+body.node-type-case-study .field-type-image .field-item {
+    text-align: center;
+    margin-top: 60px;
+}
+body.node-type-case-study .field-type-image .field-items img {
+    border: 1px solid #f4f4f4;
+    width: 100%;
+    max-width: 848px;
+}
+
+.node-teaser .field-items .field-item {
+    display: none;
+}
+
+.node-teaser .field-items .field-item:first-child {
+    display: block;
 }

@@ -104,7 +104,7 @@ function bwd_blocks_home_about_us()
             </div>
             <div class="col-md-4">
                 <h2>' . t('Why us?') . '</h2>
-                <a href="portfolio">We are passionate about translating ideas into images, layouts, interactions, visual designs, and code. Yes, we can help you bring your ideas into the web so you can share them with the world.</a>
+                <a href="cases">We are passionate about translating ideas into images, layouts, interactions, visual designs, and code. Yes, we can help you bring your ideas into the web so you can share them with the world.</a>
             </div>
         </div>
     ';
@@ -303,6 +303,7 @@ function bwd_blocks_facebook_comments()
     $html = '
     <div class="share-buttons">
         <div class="fb-like" data-href="' . _permalink() . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script><script type="IN/Share" data-url="' . _permalink() . '" data-counter="right"></script>
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="baireswebdesign">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>
     </div>
@@ -333,6 +334,11 @@ function bwd_blocks_about_us()
                 <br /><br />Baires combines best practices and progressive techniques to deliver solutions for clients across the private and public enterprise sectors.
                 <br /><br />
                 <a href="/how-we-work-our-process">Read more</a>
+
+                <br /><br /><br />
+                <h2>' . t('Why us?') . '</h2>
+                <a href="cases">We are passionate about translating ideas into images, layouts, interactions, visual designs, and code. Yes, we can help you bring your ideas into the web so you can share them with the world.</a>
+
             </div>
         </div>
     ';
