@@ -129,10 +129,10 @@ function bwd_blocks_footer()
 
                 <span class="social-share">
                     '. t('Follow us') . '
-                    <a href="http://facebook.com/baireswebdesign"><img src="/sites/all/themes/base/images/ico-facebook-white.png" alt="Facebook" /></a>
-                    <a href="http://twitter.com/baireswebdesign"><img src="/sites/all/themes/base/images/ico-twitter-white.png" alt="Twitter" /></a>
-                    <a href="http://www.linkedin.com/company/baireswebdesign-com/"><img src="/sites/all/themes/base/images/ico-linkedin-white.png" alt="Linkedin" /></a>
-                    <a href="http://plus.google.com/+Baireswebdesign"><img src="/sites/all/themes/base/images/ico-google-white.png" alt="Google" /></a>
+                    <a href="http://facebook.com/baireswebdesign" class="blank"><img src="/sites/all/themes/base/images/ico-facebook-white.png" alt="Facebook" /></a>
+                    <a href="http://twitter.com/baireswebdesign" class="blank"><img src="/sites/all/themes/base/images/ico-twitter-white.png" alt="Twitter" /></a>
+                    <a href="http://www.linkedin.com/company/baireswebdesign-com/" class="blank"><img src="/sites/all/themes/base/images/ico-linkedin-white.png" alt="Linkedin" /></a>
+                    <a href="http://plus.google.com/+Baireswebdesign" class="blank"><img src="/sites/all/themes/base/images/ico-google-white.png" alt="Google" /></a>
                 </span>
 
             </div>
@@ -232,7 +232,7 @@ function bwd_blocks_drupal_association()
 {
     $html = '
         We collaborate on Drupal Groups to help a new contributors and we are Drupal Association members<br />
-        <a href="https://drupal.org/user/998322"><img src="/sites/all/themes/base/images/drupal-assoc-member.png" alt="Drupal Association Member" /></a>
+        <a href="https://drupal.org/user/998322" class="blank"><img src="/sites/all/themes/base/images/drupal-assoc-member.png" alt="Drupal Association Member" /></a>
     ';
 
     return $html;
