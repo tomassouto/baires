@@ -2,5 +2,5 @@
 name = "Html Heads"
 description = "Insert HTML code for specific path"
 core = "7.x"
-package = Local Funeral Modules
+package = Custom Modules
 version = 1.0

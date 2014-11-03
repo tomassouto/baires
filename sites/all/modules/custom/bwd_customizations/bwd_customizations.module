@@ -1,0 +1,11 @@
+<?php
+
+function user_has_role($roles, $user = null) {
+    //checks if user has role/roles
+
+    if (is_null($user)) {
+        global $user;
+    }
+
+    return !!count(array_intersect(is_array($roles)? $roles : array($roles), array_values($user->roles)));
+};
