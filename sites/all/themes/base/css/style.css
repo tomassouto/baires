@@ -41,6 +41,13 @@ GENERIC
 /**
 General
 */
+body.front.admin-menu {
+    background: url('../images/bg-home-slider.png') 0 181px repeat-x;
+}
+body.front {
+    background: url('../images/bg-home-slider.png') 0 109px repeat-x;
+}
+
 .region-content h1 { font-size: 26px; }
 .region-content h2 { font-size: 22px; }
 a { color: #419900; }
